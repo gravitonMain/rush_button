@@ -6,6 +6,7 @@ require "rush_button/version"
 Gem::Specification.new do |spec|
   spec.name          = "rush_button"
   spec.version       = RushButton::VERSION
+  spec.licenses      = ['MIT']
   spec.authors       = ["graviton"]
   spec.email         = ["https://github.com/gravitonMain"]
 
