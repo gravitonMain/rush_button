@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "rush_button"
+
+iface = ARGV[0]
+unless iface
+  puts "e.g. '$ sudo bundle exec find_button eth0'"
+  exit
+end
+
+if `echo $UID`.chomp != "0"
+  puts "Not root"
+  exit
+end
+
+dc = RushButton::DashCapture.new iface
+puts "(Push Button)..."
+loop do
+  puts "Amazon's MAC address => #{dc.capture}"
+end
