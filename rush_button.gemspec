@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["graviton"]
   spec.email         = ["https://github.com/gravitonMain"]
 
-  spec.summary       = %q{Library for Dash Button.}
-  spec.description   = %q{Library for Dash Button.}
+  spec.summary       = %q{Library for Amazon Dash button.}
+  spec.description   = %q{Library for Amazon Dash button.}
   spec.homepage      = "https://github.com/gravitonMain/rush_button"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
