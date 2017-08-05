@@ -14,7 +14,7 @@ if `echo $UID`.chomp != "0"
 end
 
 dc = RushButton::DashCapture.new iface
-puts "(Push Button)..."
+puts "(Push Button...)"
 loop do
   puts "Amazon's MAC address => #{dc.capture}"
 end
