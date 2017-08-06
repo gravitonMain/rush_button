@@ -13,6 +13,7 @@ module RushButton
     end
     
     def capture
+      not_amazons = []
       loop do
         packet = @capture.next
         unless packet
@@ -21,14 +22,19 @@ module RushButton
         end
         if ARPPacket.can_parse? packet
           src_mac = ARPPacket.parse(packet).eth_src_readable
-          vendor_mac = (src_mac.split(":"))[0..2].join(":")
           puts "captured MAC: #{src_mac}" if $DEBUG
+          if not_amazons.include? src_mac
+            next
+          end
+          vendor_mac = (src_mac.split(":"))[0..2].join(":")
           puts "refer to #{REFER_URL+vendor_mac}..." if $DEBUG 
           vendor_name = Net::HTTP.get URI.parse(REFER_URL+vendor_mac)
           puts "vendor name: #{vendor_name}" if $DEBUG
           if vendor_name == VENDOR_NAME
             puts "this is Amazon!" if $DEBUG
             return src_mac
+          else
+            not_amazons << src_mac
           end
         end
       end
