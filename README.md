@@ -38,5 +38,5 @@ srv.start
 
 Find Amazon Dash Button's MAC address:
 
-    $ sudo buntle exec find_button INTERFACE
+    $ sudo bundle exec find_button INTERFACE
 
