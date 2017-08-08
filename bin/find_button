@@ -8,7 +8,7 @@ unless iface
   exit
 end
 
-if `echo $UID`.chomp != "0"
+if `id | awk -F'[=()]' '{print $2}'`.chomp != "0"
   puts "Not root"
   exit
 end
